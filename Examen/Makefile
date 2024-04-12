@@ -1,7 +1,7 @@
 .PHONY: all clean
 
 
-PROGS= circle factorial hist invertcase paths
+PROGS= circle factorial invertcase 
 CC=gcc
 CFLAGS=
 LDFLAGS=-lm
