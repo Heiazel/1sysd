@@ -1,27 +1,35 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
+include <stdio.h>
 
-void invertcase(char *s) {
-    for (int i = 0; s!= '\0'; i++) {
-        if (isalpha(s)) {
-            if (islower(s)) {
-                s = toupper(s);
-            } else {
-                s = tolower(s);
-            }
-        }
+#define MAX_SIZE 100
+
+void invertcase() {
+
+  char s[MAX_SIZE];
+
+  printf("Entrez une chaine (max %d chars) : ", MAX_SIZE);
+  if(scanf("%s", s) != 1) {
+    printf("Erreur de saisie\n");
+    return;
+  }
+
+  int i = 0;
+  while(s[i] != '\0') {
+    if(s[i] >= 'A' && s[i] <= 'Z') {
+      s[i] = s[i] - 'A' + 'a';
     }
+    else if(s[i] >= 'a' && s[i] <= 'z') {
+      s[i] = s[i] - 'a' + 'A'; 
+    }
+    i++;
+  }
+
+  printf("Chaine inverse: %s\n", s);
+
 }
 
-int main(int argc, char *argv[]) {
-    if (argc!= 2) {
-        printf("Usage: %s <string>\n", argv[0]);
-        return 1;
-    }
+int main() {
 
-    invertcase(argv[1]);
-    printf("%s\n", argv[1]);
-
-    return 0;
+  invertcase();
+  
+  return 0;
 }
