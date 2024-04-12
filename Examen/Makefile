@@ -1,7 +1,7 @@
 .PHONY: all clean
 
 
-PROGS= circle.c
+PROGS= circle factorial hist invertcase paths
 CC=gcc
 CFLAGS=
 LDFLAGS=-lm
