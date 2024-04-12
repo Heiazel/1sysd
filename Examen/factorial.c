@@ -1,32 +1,31 @@
 #include <stdio.h>
-#include <stdlib.h>
-
 
 int factorial(int n) {
-    int res = 1;
-    for (int i = 1; i <= n; i++) {
-        res = res * i;
-    }
-    return res;
+  if (n < 0) 
+    return -1;
+
+  int result = 1;
+  for(int i=1; i<=n; i++) {
+    result *= i;
+  }
+
+  return result;
 }
 
-int main(int argc, char *argv[]) {
-    if (argc < 3) {
-        printf("Usage: %s <start> <end>\n", argv[0]);
-        return 1;
-    }
+int main() {
 
-    int start = atoi(argv[1]);
-    int end = atoi(argv[2]);
+  int start, end;
 
-    if (start < 0 || end < 0) {
-        printf("Les nombres doivent être positifs.\n");
-        return 1;
-    }
+  printf("Entrer le premier nombre : ");
+  scanf("%d", &start);
 
-    for (int i = start; i <= end; i++) {
-        printf("%d! = %d\n", i, factorial(i));
-    }
+  printf("Entrer le dernier nombre : ");  
+  scanf("%d", &end);
 
-    return 0;
+  for(int i=start; i<=end; i++) {
+    int fact = factorial(i);
+    printf("%d! = %d\n", i, fact);
+  }
+
+  return 0;
 }
